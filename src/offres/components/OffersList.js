@@ -8,7 +8,7 @@ import OffreItem from './OfferItem';
 const OffreList = props => {
   if (props.items.length === 0) {
     return (
-      <div className="offre-list center">
+      <div className="grid_list center">
         <Card>
           <h2>No offres found. Maybe create one?</h2>
           <Button to="/offres/new">Share Offre</Button>
@@ -16,9 +16,8 @@ const OffreList = props => {
       </div>
     );
   }
-
   return (
-    <ul className="offre-list">
+    <ul className="grid_list">
       {props.items.map(offre => (
         <OffreItem
           key={offre.id}

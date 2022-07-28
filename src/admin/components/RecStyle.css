@@ -5,16 +5,14 @@
 }
 
 .recPage {
-    background: linear-gradient(119deg, rgba(0,36,34,0.8606793059020483) 0%, rgba(9,119,121,0.9419117988992471) 65%, rgba(0,255,222,1) 82%);
-
-    height: 100Vh;
+    padding-top: 5%;
+    background: rgb(255, 255, 255);
+    height: 90Vh;
     position: relative;
-    overflow: hidden;
-
+   
 }
 
 .recNavBar {
-    padding: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -110,8 +108,8 @@ input {
     outline: none;
     background: none;
     border: none;
-    color: #fff;
-    background-color: rgb(54, 154, 129);
+    color: #111;
+    background-color: rgb(255, 255, 255);
     padding: 8px 5px;
     border-radius: 100px;
     width: 280px;
@@ -135,15 +133,16 @@ input::placeholder {
 
     width: 400px;
     height: 580px;
-    transition: 0.2s;
+    transition: 0.5s;
   transform: scale(0.8);
+  z-index: 100;
     
 }
 
 .imageContainer img:hover{
    
     
-  transform: translateX(-85%) scale(1.1);
+  /* transform: translateX(-85%) scale(1.04); */
   /* box-shadow: 10px 10px 1000000px #111; */
 
   
@@ -156,24 +155,27 @@ input::placeholder {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.2);
     transition: 1s;
-}
-
-#shadowBox:hover{
     backdrop-filter: blur(10px);
-
+    pointer-events:none ;
+    opacity: 0;
 }
 
-.imageContainer img:hover ~ .shadowBox{
-
-}
+/* #fileCV {
+  position: absolute;
+  z-index: 1000;
+} */
 
 
 .btnDec {
     margin: 10px;
     max-width: 150px;
     height: 40px;
+    color: #fff ;
+    background: linear-gradient(to right, #1cada8 0%, #70dfb1  0%, #0f8884  100%) ;
+    z-index: 1000;
+    cursor: pointer;
+
 }
 
 #submitBtn {
@@ -197,13 +199,15 @@ input::placeholder {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background: rgba(0,0,0,.5);
-    box-sizing: border-box;
+    background: linear-gradient(
+        58deg,
+        #02B897,
+        #2e94b9
+      );    box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0,0,0,.6);
     border-radius: 10px;
     transition: all 0.7s cubic-bezier(0.895, 0.03, 0.685, 0.22);
     cursor: pointer;
-    
      transition: all 0.3s ease;
   }
   
@@ -379,7 +383,7 @@ footer {
 }
 
 
-#submitBtn{
+#submitBtn, #btnLink{
     color: cyan;
     background: none;
     border: 1px solid cyan;
@@ -411,16 +415,169 @@ footer {
      
 
 
+#bkgSvg {
+  position: absolute;
+  left: 110px;
+  top: 30px;
+  width: 200px;
+  height: 200px;
+  opacity: 0.5;
+}
 
 
 
 
+.recFormAccepte {
+  width: 30%;
+  
+  float: left;
 
-
-
-
-
-
-
+  height: 90%;
+  margin-left: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: linear-gradient(
+      58deg,
+      #02B897,
+      #2e94b9
+    );    box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+  transition: all 0.7s cubic-bezier(0.895, 0.03, 0.685, 0.22);
+  cursor: pointer;
+   transition: all 0.3s ease;
+}
 
   
+.recFormAccepte2 {
+  width: 40%;
+  
+  float: right;
+
+  height: 90%;
+  margin-right: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: linear-gradient(
+      58deg,
+      #5bb3a3,
+      #13607b
+    );    box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+  transition: all 0.7s cubic-bezier(0.895, 0.03, 0.685, 0.22);
+  cursor: pointer;
+   transition: all 0.3s ease;
+}
+
+  
+
+.recFormAccepte3 {
+  width: 40%;
+  
+  float: right;
+  height: 90%;
+  margin-right: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: linear-gradient(
+      58deg,
+      #5bb3a3,
+      #13607b
+    );    box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+  transition: all 0.7s cubic-bezier(0.895, 0.03, 0.685, 0.22);
+  cursor: pointer;
+   transition: all 0.3s ease;
+}
+
+#xBtn {
+  background: tomato;
+  width: min-content;
+  border-radius: 10px;
+  width: 15px;
+  height: 15px;
+  padding: 0;
+  text-align: center;
+  line-height: 16px;
+  position: relative;
+  bottom: 280px;
+  right: -590px;
+  color: white;
+  font-weight: 100;
+  transition: 2s;
+  transform: scale(0.1) ;
+  cursor: pointer;
+}
+
+.candidatureContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: 1s;
+  transform: scale(0.4);
+  backdrop-filter: blur(10px);
+}
+
+.showCandidatureContainer{
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: all;
+
+}
+
+.recForm2 {
+  margin: 0;
+  width: 750px;
+}
+
+
+textarea {
+    border-radius: 10px;
+    width: 400px;
+
+}
+
+textarea::placeholder {
+  color: white;
+  text-align: center;
+  font-size: 19px;
+
+}
+
+button {
+  outline: none;
+  width: 150px;
+  border: none;
+}
+
+#btnLink{
+  padding: 10px;
+  border-radius: 50px;
+  text-decoration: none;
+  padding-bottom: 10px;
+  color: #000;
+  
+}
+
+.hideClass {
+  display: none;
+}
+
+.hideCvFile {
+  transform: hideCvFilev;
+}
