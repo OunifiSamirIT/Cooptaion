@@ -1,0 +1,48 @@
+.container {
+
+    width: 73%;
+    height:  0;
+    margin-top: 20px;
+    margin-left: 250px;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    
+}
+
+
+.container .navv{
+
+  width: 100px;
+  box-shadow: 0 15px 25px rgba(102, 100, 100, 0.6);
+  
+  
+
+
+
+}
+
+
+.navv nav{
+
+margin-top: 140px;
+}
+
+
+ form{
+
+
+  width: 50%;
+  height: 90%;
+  margin-top: 50px;
+  margin-left: 400px;
+}
+
+
+
+.container h2{
+
+align-items: center;
+display: flex;
+
+}

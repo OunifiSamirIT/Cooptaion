@@ -79,7 +79,16 @@
     content: '';
 }
 
-
+.recForm {
+    width: 60%;
+    float: left;
+    height: 88%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+}
 
 .recCv {
     width: 50%;
@@ -99,7 +108,7 @@ input {
     outline: none;
     background: none;
     border: none;
-    color: #111;
+    color: #fff;
     background-color: rgb(255, 255, 255);
     padding: 8px 5px;
     border-radius: 100px;
@@ -124,16 +133,15 @@ input::placeholder {
 
     width: 400px;
     height: 580px;
-    transition: 0.5s;
+    transition: 0.2s;
   transform: scale(0.8);
-  z-index: 100;
     
 }
 
 .imageContainer img:hover{
    
     
-  /* transform: translateX(-85%) scale(1.04); */
+  transform: translateX(-85%) scale(1.04);
   /* box-shadow: 10px 10px 1000000px #111; */
 
   
@@ -147,15 +155,16 @@ input::placeholder {
     width: 100%;
     height: 100%;
     transition: 1s;
-    backdrop-filter: blur(10px);
-    pointer-events:none ;
-    opacity: 0;
 }
 
-/* #fileCV {
-  position: absolute;
-  z-index: 1000;
-} */
+#shadowBox:hover{
+    backdrop-filter: blur(10px);
+
+}
+
+.imageContainer img:hover ~ .shadowBox{
+
+}
 
 
 .btnDec {
@@ -164,8 +173,6 @@ input::placeholder {
     height: 40px;
     color: #fff ;
     background: linear-gradient(to right, #1cada8 0%, #70dfb1  0%, #0f8884  100%) ;
-    z-index: 1000;
-    cursor: pointer;
 
 }
 
@@ -374,7 +381,7 @@ footer {
 }
 
 
-#submitBtn, #btnLink{
+#submitBtn{
     color: cyan;
     background: none;
     border: 1px solid cyan;
@@ -487,202 +494,4 @@ footer {
   transition: all 0.7s cubic-bezier(0.895, 0.03, 0.685, 0.22);
   cursor: pointer;
    transition: all 0.3s ease;
-}
-
-#xBtn {
-  background: tomato;
-  width: min-content;
-  border-radius: 10px;
-  width: 15px;
-  height: 15px;
-  padding: 0;
-  text-align: center;
-  line-height: 16px;
-  position: relative;
-  bottom: 280px;
-  right: -590px;
-  color: white;
-  font-weight: 100;
-  transition: 2s;
-  transform: scale(0.1) ;
-  cursor: pointer;
-}
-
-.candidatureContainer {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: 1s;
-  transform: scale(0.4);
-  backdrop-filter: blur(10px);
-}
-
-.showCandidatureContainer{
-  opacity: 1;
-  transform: scale(1);
-  pointer-events: all;
-
-}
-
-.recForm2 {
-  margin: 0;
-  width: 750px;
-}
-
-
-textarea {
-    border-radius: 10px;
-    width: 400px;
-
-}
-
-textarea::placeholder {
-  color: white;
-  text-align: center;
-  font-size: 19px;
-
-}
-
-button {
-  outline: none;
-  width: 150px;
-  border: none;
-}
-
-#btnLink{
-  padding: 10px;
-  border-radius: 50px;
-  text-decoration: none;
-  padding-bottom: 10px;
-  color: #000;
-  
-}
-
-.hideClass {
-  display: none;
-}
-
-.hideCvFile {
-  transform: hideCvFilev;
-}
-
-.leftNav {
-  position: fixed;
-  top: 15%;
-  left: 0px;
-  background-color: #02B897;
-  height: 80%;
-  width: 200px;
-  transition: 1s ease-in;
-  background-image: linear-gradient(to right, #1CD8D2 0%, #93EDC7  0%, #1CD8D2  100%);
-  border-radius: 20px;
-  transform: translateX(-181px);
-  display: flex;
-  overflow: hidden;
-}
-
-.leftNav:hover {
-  transform: translateX(0);
-  
-}
-
-.leftNav:hover > .rightContainer {
-  opacity: 0;  
-}
-
-.leftNav .rightContainer {
-  background-color: #999;
-  transition: 1.5s;
-   width: 10%;
-}
-
-
-.leftNav .leftContainer {
-  width: 90%;
-  display: flex;
-  justify-content: center;
-  transition: 1s;
-  padding-top: 10px;
-
-}
-
-.leftNav .leftContainer ul li {
-  list-style: none;
-  cursor: pointer;
-  margin: 10px 2px;
-}
-
-details > summary {
-  list-style: none;
-  font-weight: bold;
-  text-transform: capitalize;
-}
-details > summary::-webkit-details-marker {
-  display: none;
-}
-
-details ul {
-  padding-left: 10px;
-}
-
-.offreContainer{
-  width: 350px;
-height: 550px;
-  background: linear-gradient(to right, #1cada8 0%, #70dfb1  0%, #0f8884  100%) ;
-  border-radius: 30px;
-  margin: 50px;
-  position: relative;
-}
-
-.imageOffre {
-  width: 120px;
-  height: 120px;
-  background-color: #13607b;
-  position: absolute;
-  top: -50px;
-  right: 110px;
-  border-radius: 60px;
-  box-shadow: 3px 3px 5px #13607b;
-  overflow: hidden;
-}
-
-.listOffreContainer {
-  height: 100vh;
-  background-color: rgb(255, 255, 255);
-  overflow: scroll;
-  display: grid;
-  grid-template-columns: auto auto auto;
-}
-
-.innerContainer {
-  width: 330px;
-  height: 300px;
-  background: gray;
-  box-shadow: 3px 3px 5px #13607b;
-  border-radius: 10px;
-  margin: auto;
-  transform: translateY(150px);
-
-}
-.innerContainer .img{
-  width: 330px;
-  height: 300px;
-  background: gray;
-  box-shadow: 3px 3px 5px #13607b;
-  border-radius: 10px;
-  margin: auto;
-
-}
-
-img {
-  width: 102%;
-  height: 102%;
-  object-fit: cover;
 }

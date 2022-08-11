@@ -6,6 +6,7 @@ import {
   NavMenu,
   NavBtn,
   NavBtnLink,
+  
 } from './NavbarElements';
 import Logo from "../../../admin/image/ll.jpg"
 
@@ -41,14 +42,20 @@ const Navbar = () => {
           <NavLink to='/Admin' >
             Admin
           </NavLink>
-
+          <NavLink to='/adminadd' >
+            AddCandidats
+          </NavLink> 
+          <NavLink to='/candidat' >
+            Candidats
+          </NavLink> 
+          
           {/* Second Nav */}
           {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
         </NavMenu>
         
         <NavBtn>
        
-        <NavBtnLink to='/auth'>S'authentifier</NavBtnLink>
+        <NavBtnLink to='/signin'>S'authentifier</NavBtnLink>
         </NavBtn>
       </Nav>
     </>
