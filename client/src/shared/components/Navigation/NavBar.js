@@ -48,7 +48,7 @@ const Navbar = () => {
           <NavLink to='/candidat' >
             Candidats
           </NavLink> 
-          
+         
           {/* Second Nav */}
           {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
         </NavMenu>

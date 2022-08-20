@@ -14,8 +14,9 @@ const OfferSchema = new mongoose.Schema(
                 image: {type : String},
                 // list des ID des recommandations
                 recommandations: [{
-                    type: mongoose.Schema.Types.String,
-                    ref: "recommandation"
+                    type: mongoose.Schema.Types.ObjectId,
+                    ref: "recommandation",
+                    
                 }],
                 //    
         },

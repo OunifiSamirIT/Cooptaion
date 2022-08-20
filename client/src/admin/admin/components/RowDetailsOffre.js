@@ -18,12 +18,11 @@ function RowDetailsOffre({ Title, Description, ModeEmploi, Company, Responsabili
       <td>{Skills}</td>
       <td>{Experiences}</td>
       <td>{REc}</td>
+
       <td className="action">
-      <span className="btn btn-success"><RemoveRedEyeIcon />
-        <Link to={`/`} className="text-white">
-          <i className="fas fa-edit"></i>
-        </Link>
-      </span>
+      
+        <Link to={`/ListeOffresREC`} className="text-white">
+        <button className="btn btn-success" ><RemoveRedEyeIcon /></button>         </Link>
         <span className="">
 
 
@@ -32,9 +31,9 @@ function RowDetailsOffre({ Title, Description, ModeEmploi, Company, Responsabili
           <Link to={`/adminadd`} className="text-white">
             <button className="btn btn-primary" ><CreateIcon /></button>        </Link>
         </span>
-        <button className="btn btn-danger" onClick={() => OnDelete(Id)}>
+        {/* <button className="btn btn-danger" onClick={() => OnDelete(Id)}>
           <DeleteOutlineIcon />
-        </button>
+        </button> */}
       </td>
     </tr>
   )

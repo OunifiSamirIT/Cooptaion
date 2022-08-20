@@ -1,0 +1,29 @@
+[
+    {"secteur_id":"1","sortname":"AF","secteur_name":"IT","states":[
+
+
+     {"state_id":"42","state_name":"WEB","secteur_id":"1"},
+     {"state_id":"43","state_name":"Mobile","secteur_id":"1"},
+     {"state_id":"44","state_name":"JAVA","secteur_id":"1"},
+     {"state_id":"45","state_name":"C#","secteur_id":"1"},
+     {"state_id":"46","state_name":".NET","secteur_id":"1"}
+ 
+
+    ]},
+
+
+    {"secteur_id":"2","sortname":"AL","secteur_name":"Telecom","states":[
+
+     {"state_id":"76","state_name":"2G","secteur_id":"2"},
+     {"state_id":"74","state_name":"4G","secteur_id":"2"},
+     {"state_id":"75","state_name":"3G","secteur_id":"2"},
+     {"state_id":"77","state_name":"5G","secteur_id":"2"},
+     {"state_id":"77","state_name":"Optim","secteur_id":"2"},
+     {"state_id":"77","state_name":"TRX","secteur_id":"2"},
+     {"state_id":"77","state_name":"OF","secteur_id":"2"},
+     {"state_id":"77","state_name":"Fixed","secteur_id":"2"},
+     {"state_id":"77","state_name":"IN","secteur_id":"2"},
+     {"state_id":"77","state_name":"CN","secteur_id":"2"}
+    ]}
+    
+]

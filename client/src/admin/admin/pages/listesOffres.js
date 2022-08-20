@@ -12,11 +12,15 @@ import Navslid from '../components/Navbar'
 import { FaSearch } from "react-icons/fa";
 
 function ListesOffres() {
+  
   const [users, setUsers] = useState([]);
+  const [recc, setREC] = useState([]);
+
   const [form, setForm] = useState({});
   const [errors, setErrors] = useState({});
   const [message, setMessage] = useState("");
   const [show, setShow] = useState(false);
+
 
 
   //search
@@ -38,17 +42,18 @@ function ListesOffres() {
   };
 
 
+  const loadRecommondationEmail = async (userId) => {
+    const result = await axios.get(`http://localhost:5000/api/rec/rec/${userId}`);
+    await result.data
+    console.log(result.data)
+  };
 
 
+setTimeout(() =>  {
+  loadRecommondationEmail('62f839e67bc6083d0ab3544b')
 
 
-
-
-
-
-
-
-
+}, 0)
 
 
 
@@ -98,11 +103,13 @@ function ListesOffres() {
                 <th scope="col">Skills</th>
                 <th scope="col">Experiences</th>
                 <th scope="col">recommandation</th>
+
                 <th >Actions       </th>
 
               </tr>
             </thead>
             <tbody>
+              
               {users.map(({ title, description, modedemploi, companyDescription, responsabilities,requiredSkills,expYears,recommandations }) => (
               <RowDetailsOffre
               Title={title}

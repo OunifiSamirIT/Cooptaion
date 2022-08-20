@@ -24,7 +24,7 @@ export const SidebarData = [
   },
   {
     title: 'CV-Teck',
-    path: '/team',
+    path: '/CV',
     icon: <IoIcons.IoMdPeople />,
     cName: 'nav-text'
   },

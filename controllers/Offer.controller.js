@@ -24,6 +24,7 @@ exports.getAllOffers = async (req, res) => {
 
     try {
         const data = await Offer.find();
+        
         res.status(201).json(data);
       } catch (error) {
         console.log(error.message);}

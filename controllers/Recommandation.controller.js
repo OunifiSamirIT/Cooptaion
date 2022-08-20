@@ -51,7 +51,7 @@ exports.createRec = async (req, res) => {
                 // $$NotAlreadyInvitrf
                 // do your code here
                 // create random code
-                const rec = new Recommandation({ invitedEmail: invitedEmail, invitedName: invitedEmail, invitedLastName: invitedLastName, linkedInUrl: linkedInUrl, phoneNumber: phoneNumber, offer_Id: id });
+                const rec = new Recommandation({ invitedEmail: invitedEmail,userEmail: userEmail, invitedName: invitedEmail, invitedLastName: invitedLastName, linkedInUrl: linkedInUrl, phoneNumber: phoneNumber, offer_Id: id });
                 let offer = await Offer.findOneAndUpdate(
                     { _id: offer_Id },
                     { $push: { recommandations: rec._id } },
@@ -97,3 +97,23 @@ exports.getAllRec = async (req, res) => {
         res.status(403).send({ message: "Could Not Load Recommandation" });
     }
 };
+
+
+exports.getrecById = async (req , res) =>{
+  
+    try {
+        const data = await Recommandation.findById({ _id: req.params.id });
+        res.status(201).json(data.userEmail);
+console.log("hello")
+      } catch (error) {
+        console.log(error.message);
+      }
+    
+    
+    
+    
+    
+    
+       
+
+}

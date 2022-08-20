@@ -20,6 +20,7 @@ const upload = multer({ storage });
 
 
 router.get("/", RecommandationController.getAllRec);
+router.get("/rec/:id", RecommandationController.getrecById);
 router.post("/createRec",upload.single("cv"), RecommandationController.createRec);
  
  

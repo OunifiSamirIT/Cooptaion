@@ -24,8 +24,9 @@ import AuthPage from '../src/dhiaauth/signup/authpage';
 
 import SigninPage from './dhiaauth/signin/signinpage';
 import DetailsUS from './admin/admin/pages/Details';
-
-
+import DetailOffreREc from './admin/admin/pages/RecOffreDetails'
+import CV from './admin/admin/pages/CV/CV'
+import CVList from './admin/admin/pages/CV/listeCV'
 function App() {
   return (
 
@@ -41,6 +42,9 @@ function App() {
         {/* <Route path="/users/edit/:id" element={<EditUser/>} /> */}
         <Route exact path="/users/:id" component={User} />
         <Route path="/ListeOffres" element={<ListeOffres />} />
+        <Route path="/ListeOffresREC" element={<DetailOffreREc />} />
+        <Route path="/CV" element={<CV />} />
+        <Route path="/CVList" element={<CVList />} />
       
 
 

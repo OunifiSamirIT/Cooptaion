@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import CreateIcon from '@mui/icons-material/Create';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-
+import BuildCircleIcon from '@mui/icons-material/BuildCircle';
 //
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -34,12 +34,9 @@ function RowDetails({ Email, Lastname, Firstname, Password, Id, OnDelete }) {
 
 
   return (
-    <tr>
+    <tr algin="center">
 
-      <th>{Email}</th>
-      <td>{Lastname}</td>
-      <td>{Firstname}</td>
-      <td>{Password}</td>
+      
       <td className="gap__actions">
       {/* <span className="badge bg-info">
         <Link to={`/users/edit/${Id}`} className="text-white"> </Link>      
@@ -52,7 +49,7 @@ function RowDetails({ Email, Lastname, Firstname, Password, Id, OnDelete }) {
 
 
 
-          <Link to={`/users/edit/${Id}`} className="text-white"><button className="btn btn-primary" ><CreateIcon /></button></Link>
+          <Link to={`/users/edit/${Id}`} className="text-white"><button className="btn btn-primary" ><BuildCircleIcon /></button></Link>
         </span>
 
 

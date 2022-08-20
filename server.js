@@ -30,6 +30,7 @@ const userRoute = require("./routes/user.route.js");
 const invitRoute = require("./routes/invit.route.js");
 const offerRoute = require("./routes/offer.route");
 const recRoute = require("./routes/recommandation.route");
+const cvtechRoute = require("./routes/CvTech.route");
 
 
 
@@ -41,6 +42,7 @@ app.use("/api/user", userRoute);
 app.use("/api/invit", invitRoute);
 app.use("/api/offer/",offerRoute);
 app.use("/api/rec/",recRoute);
+app.use("/api/cvtech/",cvtechRoute);
 
 if (process.env.NODE_ENV === "production") {
     console.log("app in production mode");
