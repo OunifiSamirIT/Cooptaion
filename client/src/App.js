@@ -26,7 +26,9 @@ import SigninPage from './dhiaauth/signin/signinpage';
 import DetailsUS from './admin/admin/pages/Details';
 import DetailOffreREc from './admin/admin/pages/RecOffreDetails'
 import CV from './admin/admin/pages/CV/CV'
-import CVList from './admin/admin/pages/CV/listeCV'
+import CVList from './admin/admin/pages/CV/LCV'
+import CVPDF from './admin/admin/pages/CV/CVPDF'
+import DASH from './admin/admin/pages/chartadmin'
 function App() {
   return (
 
@@ -45,6 +47,8 @@ function App() {
         <Route path="/ListeOffresREC" element={<DetailOffreREc />} />
         <Route path="/CV" element={<CV />} />
         <Route path="/CVList" element={<CVList />} />
+        <Route path="/CVPDF" element={<CVPDF />} />
+        <Route path="/dash" element={<DASH />} />
       
 
 

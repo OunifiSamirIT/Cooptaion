@@ -12,6 +12,8 @@ const OfferSchema = new mongoose.Schema(
                 expYears: {type: String},
                 closed: {type: Boolean},
                 image: {type : String},
+                status: { type: String },
+
                 // list des ID des recommandations
                 recommandations: [{
                     type: mongoose.Schema.Types.ObjectId,

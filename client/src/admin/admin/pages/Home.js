@@ -12,9 +12,9 @@ import Navslid from '../components/Navbar'
 import { FaSearch } from "react-icons/fa";
 import Alertdialoge from "../pages/AlertDialog"
 ///////////////
-import  { tableCellClasses } from '@mui/material/TableCell';
+import { tableCellClasses } from '@mui/material/TableCell';
 import {
-  Box,
+
   Icon,
   IconButton,
   styled,
@@ -25,7 +25,23 @@ import {
   TablePagination,
   TableRow,
 } from "@mui/material";
+//////
+import { Group, MapsHomeWork } from '@mui/icons-material';
+import {
+  Avatar,
+  Box,
+  Divider,
+  List,
+  ListItem,
+  ListItemAvatar,
+  ListItemText,
+  Paper,
+  Typography,
+} from '@mui/material';
 
+
+
+/////
 const StyledTable = styled(Table)(({ theme }) => ({
   whiteSpace: "pre",
   "& thead": {
@@ -59,6 +75,7 @@ function Home() {
 
   const [query, setQuery] = useState("")
   const [posts, setPost] = useState([]);
+  const [offres, setOffres] = useState([]);
 
   ///////////popup
   const [open, setOpen] = React.useState(false);
@@ -120,6 +137,8 @@ function Home() {
   /* find all users */
   useEffect(() => {
     loadUsers();
+    loadoffre();
+
   });
 
   const loadUsers = async () => {
@@ -128,6 +147,10 @@ function Home() {
   };
 
 
+  const loadoffre = async () => {
+    const result = await axios.get("http://localhost:5000/api/offer/");
+    setOffres(result.data.reverse());
+  };
 
 
 
@@ -153,84 +176,157 @@ function Home() {
 
   return (
 
-    // <div>
-    //   <div className="navv"><Navslid /></div>
-
-
-
-    //   <div className="container">
-
-
-
-
-
-
-
-
-    //     <div className="container2">
-    //       <h2>Gestion Users</h2>
-
-    //       <input className="espace" placeholder="chercher par email !!"   onChange={event => setQuery(event.target.value)} /> 
-    //      <span>   </span> <input placeholder="chercher par nom !!"   onChange={event => setQuery(event.target.value)} /><span>   </span>  <FaSearch/>
-
-
-
-    //     </div>
-    //     <div className="divtable">
-    //       <table class="table border shadow">
-    //         <thead class="table-dark">
-    //           <tr>
-
-    //             <th scope="col">Email</th>
-    //             <th scope="col">Lastname</th>
-    //             <th scope="col">Firstname</th>
-    //             <th scope="col">Age</th>
-    //             <th scope="col">Actions</th>
-    //           </tr>
-    //         </thead>
-    //         <tbody>
-
-    //           {posts &&
-    //             posts.filter(post => {
-    //               if (query === '') {
-    //                 return post;
-    //               } else if (post.email.toLowerCase().includes(query.toLowerCase())) {
-    //                 return post;
-    //               }else if (post.lastname.toLowerCase().includes(query.toLowerCase())){
-    //                 return post;
-
-
-    //               }
-    //             }).map(({ email, lastname, firstname, password, _id }) => (
-    //               <RowDetails
-    //                 Email={email}
-    //                 Lastname={lastname}
-    //                 Firstname={firstname}
-    //                 Password={password}
-    //                 Id={_id}
-    //                 OnDelete={OnDelete}
-
-    //               />
-
-    //             ))
-
-    //           }
-
-
-
-
-
-
-
-    //         </tbody>
-    //       </table>
-
-    //     </div>
-    //   </div>
-    // </div>
+    
     <>
       <div className="navv"><Navslid /></div>
-      <div className="container">
+      <div className='dash'>
+        <Box
+          sx={{
+            display: { xs: 'flex', md: 'grid' },
+            gridTemplateColumns: 'repeat(4,1fr)',
+            gridAutoRows: 'minmax(100px, auto)',
+            gap: 4,
+            textAlign: 'center',
+            flexDirection: 'column',
+          }}
+        >
+          <Paper elevation={3}
+            sx={{
+              p: 3,
+
+              marginTop: 4,
+              height: 100,
+              background: 'linear-gradient(to right bottom, #80ecda, #59b5b5)',
+
+              width: 260
+            }}>
+            <Typography variant="h6" >Total Users</Typography>
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+
+                justifyContent: 'center',
+              }}
+            >
+              <Group sx={{ height: 30, width: 70, opacity: 0.3, mr: 1 }} />
+              <Typography variant="h4">{posts.length}</Typography>
+            </Box>
+          </Paper>
+
+
+
+
+
+
+
+
+
+
+          <Paper elevation={3} sx={{
+            p: 3, height: 100,
+            background: 'linear-gradient(to right bottom, #80ecda, #59b5b5)',
+
+            width: 260,
+
+            marginTop: 4
+          }}>
+            <Typography variant="h6">Total Offre</Typography>
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <MapsHomeWork sx={{ height: 30, width: 70, opacity: 0.3, mr: 1 }} />
+              <Typography variant="h4">{offres.length}</Typography>
+            </Box>
+          </Paper>
+
+
+          <Paper elevation={3} sx={{
+            p: 3, height: 100,
+            background: 'linear-gradient(to right bottom, #80ecda, #59b5b5)',
+
+            width: 260,
+
+            marginTop: 4
+          }}>
+            <Typography variant="h6">Total Offre</Typography>
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <MapsHomeWork sx={{ height: 30, width: 70, opacity: 0.3, mr: 1 }} />
+              <Typography variant="h4">{offres.length}</Typography>
+            </Box>
+          </Paper>
+
+
+
+
+
+          <Paper elevation={4}
+            sx={{
+              p: 3,
+              gridColumn: 4,
+              marginRight: '270px',
+              gridRow: '1/4',
+              width: '380px'
+            }}>
+            <Box>
+              <Typography>Recently added Users</Typography>
+              <List>
+                {posts.slice(0, 4).map((p, i) => (
+                  <Box key={p._id}>
+                    <ListItem>
+                      <ListItemAvatar>
+                        <Avatar alt={p?.firstname} src={p?.password} />
+                      </ListItemAvatar>
+                      <ListItemText
+                        primary={p?.password}
+                      />
+                    </ListItem>
+                    {i !== 3 && <Divider variant="inset" />}
+                  </Box>
+                ))}
+              </List>
+            </Box>
+            <Divider sx={{ mt: 3, mb: 3, opacity: 0.7 }} />
+            <Box>
+              <Typography>Recently added Offre</Typography>
+              <List >
+                {offres.slice(0, 4).map((p, i) => (
+                  <Box key={p._id} >
+                    <ListItem>
+                      <ListItemAvatar>
+                        <Avatar
+                          alt={p?.title}
+                          variant="rounded"
+                        />
+                      </ListItemAvatar>
+                      <ListItemText
+                        primary={p?.description}
+                        secondary={p?.createdAt}
+                      />
+                    </ListItem>
+                    {i !== 3 && <Divider variant="inset" />}
+                  </Box>
+                ))}
+              </List>
+            </Box>
+          </Paper>
+
+
+
+
+
+          <Paper elevation={5} sx={{ p: 2, width: '150%', gridColumn: '1/3' }}>
+        
         <div className="container2">
           <h2>Gestion Users</h2>
 
@@ -314,7 +410,13 @@ function Home() {
               nextIconButtonProps={{ "aria-label": "Next Page" }}
               backIconButtonProps={{ "aria-label": "Previous Page" }}
             />
-          </Box></div></div></>
+          </Box></div>
+
+          </Paper>
+          {/* <Paper elevation={3} sx={{ p: 2,width:'80%', gridColumn: '1/3' }}>
+       </Paper> */}
+        </Box>
+      </div></>
   );
 }
 

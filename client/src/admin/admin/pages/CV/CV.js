@@ -6,7 +6,10 @@ import countrydata from './Countrydata.json';
 import Navslid from '../../components/Navbar'
 import axios from "axios";
 import Alert from "../../components/Alert";
-
+import { useNavigate, useParams } from 'react-router-dom';
+import SendIcon from '@mui/icons-material/Send';
+import Button from '@mui/material/Button';
+import ContactMailIcon from '@mui/icons-material/ContactMail';
 function CV() {
 
 
@@ -21,15 +24,15 @@ function CV() {
     const [secteurid, setCountryid] = useState('');
     const [state, setState] = useState([]);
     const [stateid, setStateid] = useState('');
-/////
+    /////
     const [TitreProfile, setTitle] = useState('')
     const [PosteActuel, setposte] = useState('')
     const [Formation, setFormation] = useState('')
     const [Experience, setexperience] = useState('')
     const [Secteur, setsecteur] = useState('')
     const [Specialiter, setspecialiter] = useState('')
-   
-   //select option
+
+    //select option
     // const handleChange = (event) => {
     //     setSalarie(event.target.value);
     //     console.log(event.target.value)
@@ -38,16 +41,16 @@ function CV() {
     //       salarie: event.target.value,
     //   })
     // };
-    
-//////
+
+    //////
     const handleSecter = (e) => {
         const getsecteurId = e.target.value;
         const getStatedata = countrydata.find(secteur => secteur.secteur_id === getsecteurId).states;
         setState(getStatedata);
         setCountryid(getsecteurId);
-      
+
         // console.log(getStatedata)
-       
+
         // console.log(getcountryId);
     }
 
@@ -70,7 +73,10 @@ function CV() {
     const [message, setMessage] = useState("");
     const [show, setShow] = useState(false);
 
-  
+
+    const navigate = useNavigate()
+
+
 
     const onSubmitHandler = (e) => {
         //to do not refresh the page (it's like a SPA)
@@ -78,16 +84,18 @@ function CV() {
         ///////////////////////////////////////
         axios.post('http://localhost:5000/api/cvtech/cvtech',
 
-         {
-            'TitreProfile': TitreProfile,
-            'PosteActuel': PosteActuel,
-            'Formation': Formation,
-            'Experience': Experience,
-            'Secteur': Secteur,
-            'Specialiter': Specialiter,
-          }
+            {
+                'TitreProfile': TitreProfile,
+                'PosteActuel': PosteActuel,
+                'Formation': Formation,
+                'Experience': Experience,
+                'Secteur': Secteur,
+                'Specialiter': Specialiter,
+            }
 
-        ) .then(console.log('hhhhhhhhhhhhhhhhhhhhhh'))
+        ).then(res => {
+            navigate('/CVList')
+        })
     }
 
 
@@ -107,6 +115,7 @@ function CV() {
         <>      <div className="navv"><Navslid /></div>
 
             <div className='container'>
+                <h2 className='h2h2'> Create Your CV </h2>
                 <form onSubmit={
                     onSubmitHandler
                     // console.log({
@@ -134,11 +143,11 @@ function CV() {
                         <div >
                             <label className='label3'>Poste Actuel</label>
 
-                            <input type="text" 
-                            placeholder="Password" 
+                            <input type="text"
+                                placeholder="Password"
 
-                            onChange={(e) => setposte(e.target.value)}
-                            
+                                onChange={(e) => setposte(e.target.value)}
+
                             />
 
                         </div>
@@ -153,16 +162,16 @@ function CV() {
                         <div className='div1' >
                             <label className='label1'>Formation</label>
                             <input type="text"
-                             placeholder="Formation"
+                                placeholder="Formation"
 
-                             onChange={(e) => setFormation(e.target.value)} />
+                                onChange={(e) => setFormation(e.target.value)} />
                         </div>
                         <div >
                             <label className='label2'>Experiences</label>
-                            <input type="text" 
-                            placeholder="Experiences"
+                            <input type="text"
+                                placeholder="Experiences"
 
-                            onChange={(e) => setexperience(e.target.value)} />
+                                onChange={(e) => setexperience(e.target.value)} />
                         </div>
                     </div>
 
@@ -179,7 +188,7 @@ function CV() {
                                 {
                                     countrydata.map((getsecteur, index) => (
                                         <option value={getsecteur.secteur_id}
-                                         key={index}>{getsecteur.secteur_name}</option>
+                                            key={index}>{getsecteur.secteur_name}</option>
                                     ))
 
                                 }
@@ -189,11 +198,11 @@ function CV() {
                         <div className="div1">
                             <label >Specialiter</label>
                             <select className='selected2' onChange={(e) => {
-                                const myValue = document.querySelector('.selected2').options[document.querySelector('.selected2').selectedIndex].text ;
-                                    console.log(myValue) ;
-                                    setspecialiter(myValue)
+                                const myValue = document.querySelector('.selected2').options[document.querySelector('.selected2').selectedIndex].text;
+                                console.log(myValue);
+                                setspecialiter(myValue)
 
-                                }}>
+                            }}>
                                 <option value={stateid} >--Select Specialiter--</option>
                                 {
                                     state.map((getstate, index) => (
@@ -227,7 +236,10 @@ function CV() {
                         <div ><label></label></div>
                         <input type="file" className='input1'
                         /></div>
-                    <button type="submit" className="but">Save</button>
+                    {/* <button type="submit" className="but">Save</button> */}
+                   <div className='butonCV' > <Button type="submit" variant="contained" endIcon={<ContactMailIcon />}>
+                        Save
+                    </Button></div>
                 </form></div>
         </>
 

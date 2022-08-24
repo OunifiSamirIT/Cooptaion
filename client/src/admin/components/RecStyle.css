@@ -141,7 +141,7 @@ input::placeholder {
 .imageContainer img:hover{
    
     
-  transform: translateX(-85%) scale(1.04);
+  transform: translateX(85%) scale(1.04);
   /* box-shadow: 10px 10px 1000000px #111; */
 
   

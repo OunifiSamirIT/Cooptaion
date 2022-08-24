@@ -5,10 +5,46 @@
     margin-top: 20px;
     margin-left: 250px;
     align-items: center;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(190, 188, 188);
     box-shadow: 0 15px 25px rgba(0,0,0,.6);
     padding-bottom: 10px;
 }
+
+.containercv {
+
+  width: 50%;
+  height:  0;
+  margin-top: 20px;
+  margin-left: 250px;
+  align-items: center;
+  background-color: rgb(190, 188, 188);
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  padding-bottom: 10px;
+}
+.container .container2{
+
+  /* width: 105%; */
+}
+.dash{
+
+   width: 100%;
+   margin-left: 250px;
+
+}
+.container .cvcv{
+
+  width: 50%;
+  transition: 0.2s;
+  
+
+}
+.container .cvcv:hover{
+
+  transform: translateX(35%) scale(1.2);
+
+
+}
+
 
 .container .CV {
 
@@ -206,6 +242,18 @@ display: flex;
   margin-right: 300px;
   margin-bottom: 50px;
 }
+.cvcv{
+
+  width: 50%;
+}
+
+
+.butonCV{
+
+
+  align-items: center;
+  transform: translateX(30%);
+}
 
 
  .but {
@@ -223,7 +271,11 @@ display: flex;
    padding: 40;
 }
 
+.container .h2h2{
 
+  margin-left: 40%;
+  height: 20px;
+}
 .CV .label0{
 
 
@@ -232,12 +284,12 @@ display: flex;
 .CV .label1{
 
 
-  margin-right: 70px;
+  margin-right: 50px;
 }
 .CV .label2{
 
 
-  margin-right: 32px;
+  margin-right: 22px;
 }
 .CV .label3{
 
@@ -267,3 +319,4 @@ display: flex;
   margin-bottom: 50px;
   margin-top: 50px;
 margin-left: 380px;}
+
