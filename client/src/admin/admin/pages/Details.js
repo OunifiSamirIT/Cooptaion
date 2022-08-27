@@ -58,8 +58,8 @@ function Details() {
   //   });
   // }, []);
   return (
-    <div className="containeredit">
-        <form onSubmit={onSubmitHandler}>
+    <div >
+        <form onSubmit={onSubmitHandler} className="container">
           <InputGroup
             label="Email"
             type="text"
@@ -82,7 +82,6 @@ function Details() {
               console.log(lastName)
             }}
             errors={errors.lastname}
-            // value={form.lastname}
             placeHOLDER={form.lastname }
 
           />
@@ -94,8 +93,7 @@ function Details() {
               setFirstName(e.target.value)
               console.log(firstName)
             }}
-            // errors={errors.firstname}
-            // value={form.firstname}
+           
             placeHOLDER={form.firstname }
           />
           <InputGroup
@@ -107,7 +105,6 @@ function Details() {
               console.log(password)
             }}
             errors={errors.password}
-            // value={form.password}
             placeHOLDER={form.password }
 
           />

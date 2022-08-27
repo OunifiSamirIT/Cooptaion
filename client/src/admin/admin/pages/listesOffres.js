@@ -7,7 +7,7 @@ import CreateIcon from '@mui/icons-material/Create';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { NavLink } from 'react-router-dom';
 import Alert from "../components/Alert";
-import './Style.css'
+import './../components/Style.css'
 import Navslid from '../components/Navbar'
 
 import { Link } from 'react-router-dom';
@@ -217,7 +217,7 @@ const handleChangeRowsPerPage = (event) => {
 
 
 <div >
-          <h2>Gestion CV-TECK</h2>
+          <h2>Gestion Offres</h2>
 
           <input className="espace" placeholder="Entrer Title offre !!" onChange={event => setQuery(event.target.value)} />
           <span>   </span> <input placeholder="mode emploi !!" onChange={event => setQuery(event.target.value)} /><span>   </span>  <FaSearch />
@@ -272,7 +272,7 @@ const handleChangeRowsPerPage = (event) => {
                     style={{
                         backgroundColor: 
                         ((status === 'cloturee' && 'red') ||
-                        (status === 'draft' && 'yellow') ||
+                        (status === 'draft' && 'Orange') ||
                         (status === 'publiee' && 'green')||
                         (status === 'repondu' && 'blue'))
                     }}

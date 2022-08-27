@@ -11,6 +11,14 @@ import './Style.css'
 import Navslid from '../components/Navbar'
 import { FaSearch } from "react-icons/fa";
 import Alertdialoge from "../pages/AlertDialog"
+import SdCardIcon from '@mui/icons-material/SdCard';
+import AddToQueueIcon from '@mui/icons-material/AddToQueue';
+import chart from './dashbord/Analytics'
+//////////
+
+import { PieChart, Pie, Cell, Tooltip } from 'recharts';
+
+
 ///////////////
 import { tableCellClasses } from '@mui/material/TableCell';
 import {
@@ -26,7 +34,7 @@ import {
   TableRow,
 } from "@mui/material";
 //////
-import { Group, MapsHomeWork } from '@mui/icons-material';
+import { Group, MapsHomeWork, Title } from '@mui/icons-material';
 import {
   Avatar,
   Box,
@@ -36,7 +44,7 @@ import {
   ListItemAvatar,
   ListItemText,
   Paper,
-  Typography,
+  Typography,Stack
 } from '@mui/material';
 
 
@@ -60,7 +68,35 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     fontSize: 14,
   },
 }));
+/////////////////
 
+const COLORS = ['#00C49F', '#0088FE', '#FFBB28', '#FF8042'];
+
+const RADIAN = Math.PI / 180;
+const renderCustomizedLabel = ({
+  cx,
+  cy,
+  midAngle,
+  innerRadius,
+  outerRadius,
+  percent,
+}) => {
+  const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+  const x = cx + radius * Math.cos(-midAngle * RADIAN);
+  const y = cy + radius * Math.sin(-midAngle * RADIAN);
+
+  return (
+    <text
+      x={x}
+      y={y}
+      fill="black"
+      textAnchor={x > cx ? 'start' : 'end'}
+      dominantBaseline="central"
+    >
+      {`${(percent * 100).toFixed(0)}%`}
+    </text>
+  );
+};
 
 function Home() {
   //popup
@@ -76,6 +112,7 @@ function Home() {
   const [query, setQuery] = useState("")
   const [posts, setPost] = useState([]);
   const [offres, setOffres] = useState([]);
+  const [cv, setCv] = useState([]);
 
   ///////////popup
   const [open, setOpen] = React.useState(false);
@@ -92,31 +129,8 @@ function Home() {
 
   ////////////
 
-  const onChangeHandler = (e) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
 
-  };
-
-  const onSubmitHandler = (e) => {
-    e.preventDefault();
-    axios.post('http://localhost:5000/api/user/add', form)
-      .then(res => {
-        setMessage(res.data.message)
-        /* hide form after save */
-        setForm({})
-        /* hide errors after save */
-        setErrors({})
-        setShow(true)
-        setTimeout(() => {
-          setShow(false)
-        }, 4000);
-      })
-      .catch(err => setErrors(err.response.data))
-
-  }
+ 
 
   /* delete */
   const OnDelete = (id) => {
@@ -138,7 +152,21 @@ function Home() {
   useEffect(() => {
     loadUsers();
     loadoffre();
+    loadCV();
 
+
+
+
+
+    let free = 0,
+    lessThan15 = 0,
+    between15And35 = 0,
+    moreThan35 = 0;
+  posts.forEach((room) => {
+    if (room.lastname === 0) return free++;
+    if (room.age < 15) return lessThan15++;
+    if (room.email <= 35) return between15And35++;
+    moreThan35++; });
   });
 
   const loadUsers = async () => {
@@ -152,6 +180,10 @@ function Home() {
     setOffres(result.data.reverse());
   };
 
+  const loadCV = async () => {
+    const result = await axios.get("http://localhost:5000/api/cvtech/cvtech");
+    setCv(result.data.reverse());
+  };
 
 
 
@@ -196,9 +228,12 @@ function Home() {
 
               marginTop: 4,
               height: 100,
-              background: 'linear-gradient(to right bottom, #80ecda, #59b5b5)',
+              // background: 'linear-gradient(#00d4ff, #6666d6)',
+              background: '#07abbb',
+              width: 260,
+              boxShadow: '0px 2px 20px #181a1f',
 
-              width: 260
+              
             }}>
             <Typography variant="h6" >Total Users</Typography>
             <Box
@@ -225,11 +260,13 @@ function Home() {
 
           <Paper elevation={3} sx={{
             p: 3, height: 100,
-            background: 'linear-gradient(to right bottom, #80ecda, #59b5b5)',
+            // background: 'linear-gradient(#40ddb0,#80a5ec)',
+            background: '#66d6ba',
 
             width: 260,
 
-            marginTop: 4
+              boxShadow: '0px 2px 20px #181a1f',
+              marginTop: 4,
           }}>
             <Typography variant="h6">Total Offre</Typography>
             <Box
@@ -247,13 +284,14 @@ function Home() {
 
           <Paper elevation={3} sx={{
             p: 3, height: 100,
-            background: 'linear-gradient(to right bottom, #80ecda, #59b5b5)',
-
+            // background: 'linear-gradient(#00d4ff, #59b5b5)',
+            background: '#59b5b5',
             width: 260,
 
-            marginTop: 4
+              boxShadow: '0px 2px 20px #181a1f',
+              marginTop: 4,
           }}>
-            <Typography variant="h6">Total Offre</Typography>
+            <Typography variant="h6">Total CV Bank</Typography>
             <Box
               sx={{
                 display: 'flex',
@@ -261,8 +299,8 @@ function Home() {
                 justifyContent: 'center',
               }}
             >
-              <MapsHomeWork sx={{ height: 30, width: 70, opacity: 0.3, mr: 1 }} />
-              <Typography variant="h4">{offres.length}</Typography>
+              <SdCardIcon sx={{ height: 30, width: 70, opacity: 0.3, mr: 1 }} />
+              <Typography variant="h4">{cv.length}</Typography>
             </Box>
           </Paper>
 
@@ -279,26 +317,73 @@ function Home() {
               width: '380px'
             }}>
             <Box>
-              <Typography>Recently added Users</Typography>
-              <List>
+              <Typography> Users Recent</Typography>
+              <List 
+               sx={{
+              float: 'left' ,
+            width: '250px'          }} 
+              >
                 {posts.slice(0, 4).map((p, i) => (
                   <Box key={p._id}>
                     <ListItem>
-                      <ListItemAvatar>
-                        <Avatar alt={p?.firstname} src={p?.password} />
-                      </ListItemAvatar>
-                      <ListItemText
-                        primary={p?.password}
+                      
+                       
+                     
+                      <ListItemText   
+                        primary={p?.firstname}
                       />
+                      
+                      <ListItemText sx={{
+                        width: '100px',
+                        marginRight:'50px'
+                       
+                      }}  
+                      primary={p?.lastname}
+                    />
+                     
+                    
                     </ListItem>
+                    
+                    {i !== 3 && <Divider variant="inset" />}
+                  </Box>
+                ))}
+
+                     
+              </List>
+              <List sx={{
+              float: 'right',
+              width: '80px',
+                      }} >
+
+
+              {cv.slice(0, 4).map((p, i) => (
+                  <Box key={p._id}>
+                    <ListItem>
+                      
+                      <ListItemText   
+                        primary={p?.Specialiter}
+                        sx={{ backgroundColor: 'red',
+                        boxShadow: '2px 2px 0px #181a1f',
+                        borderRadius: '5px',
+                        opacity: 0.8,
+                        color: 'white',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
+
+                      }}
+                      />
+                    
+                    </ListItem>
+                    
                     {i !== 3 && <Divider variant="inset" />}
                   </Box>
                 ))}
               </List>
             </Box>
-            <Divider sx={{ mt: 3, mb: 3, opacity: 0.7 }} />
+            <Divider sx={{ mt: 3, mb: 3, opacity: 1.7 }} />
             <Box>
-              <Typography>Recently added Offre</Typography>
+              <Typography> Offre Recent</Typography>
               <List >
                 {offres.slice(0, 4).map((p, i) => (
                   <Box key={p._id} >
@@ -319,6 +404,60 @@ function Home() {
                 ))}
               </List>
             </Box>
+            
+
+
+
+
+
+            <Box
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-evenly',
+        flexWrap: 'wrap',
+      }}
+     >
+      <PieChart width={100} height={100} >
+        <Pie
+                    data={posts}
+                    labelLine={false}
+                    label={renderCustomizedLabel}
+          outerRadius={80}
+          fill="#8884d8"
+        >
+          {/* {posts.map((entry, index) => (
+            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+          ))} */}
+          
+        </Pie>
+        <Tooltip />
+      </PieChart>
+
+
+
+      <Stack gap={2}>
+        <Typography variant="h6">Rooms Cost</Typography>
+        <Box sx={{ display: 'flex', gap: 3, flexWrap: 'wrap' }}>
+          {COLORS.map((color, i) => (
+            <Stack key={color} alignItems="center" spacing={1}>
+              <Box sx={{ width: 20, height: 20, background: color }} />
+              <Typography variant="body2" sx={{ opacity: 0.7 }}>
+                {posts[i]?.lastname}
+              </Typography>
+            </Stack>
+          ))}
+        </Box>
+      </Stack>
+    </Box>
+
+
+
+
+
+
+
+
           </Paper>
 
 

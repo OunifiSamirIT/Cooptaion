@@ -77,14 +77,14 @@ function HomeAdd() {
     <div>
       <div className="navv"><Navslid /></div>
 
-      <div className="contanier">
+      <div className="containeradduser">
         <h2 >Gestion Administrateur</h2>
 
         <Alert message={message} show={show} />
         <div className="mt-4">
         </div>
         <div >
-          <form onSubmit={onSubmitHandler}>
+          <form onSubmit={onSubmitHandler} className="container">
             <InputGroup
               label="Email"
               type="text"
