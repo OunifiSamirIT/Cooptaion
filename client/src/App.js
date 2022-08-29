@@ -30,6 +30,11 @@ import CVList from './admin/admin/pages/CV/LCV'
 import CVPDF from './admin/admin/pages/CV/CVPDF'
 import DASH from './admin/admin/pages/chartadmin'
 import Tablemultiple from './admin/admin/pages/tablemultiple'
+// import Stepper from './admin/admin/pages/LinearStepper'
+
+
+import ListeD from './admin/admin/pages/1Table'
+
 function App() {
   return (
 
@@ -51,6 +56,8 @@ function App() {
         <Route path="/CVPDF" element={<CVPDF />} />
         <Route path="/dash" element={<DASH />} />
         <Route path="/TableMul" element={<Tablemultiple />} />
+        <Route path="/listedouble" element={<ListeD />} />
+        {/* <Route path="/Stepper" element={<Stepper />} /> */}
       
 
 

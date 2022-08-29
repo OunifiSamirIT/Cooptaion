@@ -103,8 +103,8 @@ exports.getrecById = async (req , res) =>{
   
     try {
         const data = await Recommandation.findById({ _id: req.params.id });
-        res.status(201).json(data.userEmail);
-console.log("hello")
+        res.status(201).json(data);
+       console.log("hello")
       } catch (error) {
         console.log(error.message);
       }

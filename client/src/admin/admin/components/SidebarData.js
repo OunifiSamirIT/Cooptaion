@@ -10,7 +10,7 @@ export const SidebarData = [
     icon: <AiIcons.AiFillHome />,
     cName: 'nav-text'
   },
-  {
+  { 
     title: 'Reports',
     path: '/ListeOffres',
     icon: <IoIcons.IoIosPaper />,
