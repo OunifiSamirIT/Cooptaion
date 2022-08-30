@@ -1,21 +1,27 @@
 import React from 'react'
 
-export default function innerTable({recommandations}) {
+export default function innerTable({children}) {
   return (
     <details style={{width: "300px"}}>
-    <summary>recomendation</summary>
+    <summary>FILS</summary>
   
     <table className='descriptionTable' >
         <thead className='headerRow'>
           <tr>
             <th>userEmail</th>
-            <th>invitedEmail</th>
+            <th>parentEmail</th>
   
           </tr>
         </thead>
         <tbody>
-         <td>{recommandations.userEmail}</td>
-         <td>{recommandations.invitedEmail}</td>
+          {
+            children.map( child => (
+              <tr> 
+            <td>{child.userEmail}</td>
+            <td>{child.parentEmail}</td  >
+              </tr>
+            ))
+          }
         </tbody>
       </table></details>
   )

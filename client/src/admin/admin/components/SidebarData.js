@@ -20,7 +20,8 @@ export const SidebarData = [
     title: 'Offres',
     path: '/offers',
     icon: <FaIcons.FaBlackTie />,
-    cName: 'nav-text'
+    cName: 'nav-text',
+    
   },
   {
     title: 'CV-Teck',

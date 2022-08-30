@@ -8,12 +8,7 @@ export default function row({title, description, modedemploi, companyDescription
 return (
     <thead className='OuterHeaderRow'>
       <tr>
-        <th>title</th>
-        <th>description</th>
-        <th>modede</th>
-        <th>Description</th>
-        <th>responsabilities</th>
-        <th>exp</th>
+        <th>userEmail</th>
       </tr>
     </thead>
   )

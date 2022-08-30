@@ -1,19 +1,20 @@
 .outerTable{
-    background-color: #f1f3f7 ;
+    background-color: #f9f9fb       ;
     margin: 20px;
     border-radius: 10px;
     padding: 5px 15px;
     font-size: 14px;
-    color: rgb(0, 0, 0);
-    box-shadow: 10px 10px 30px #6eb7b3,
-    -5px -5px 15px #6eb7a4
+    color: #fff;
+    width: 50%;
+    box-shadow: 10px 10px 30px #f8f8f8,
+    -5px -5px 15px #f3f4f6
     ;
 }
 
 .outerTable tr, .outerTable td{
     border: 1px solid #fff;
     border-radius: 5px;
-    text-align: center;
+    text-align: start;
     padding: 1px;
 } 
 
@@ -32,5 +33,5 @@ cursor: pointer;}
 .outerTable table {
     margin: 5px;
 
-    margin-left: 100px;
+    margin-left: 30px;
 }
